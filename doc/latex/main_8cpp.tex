@@ -1,0 +1,170 @@
+\doxysection{src/\+main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+
+
+El programa completo de la clase \doxylink{class_grafo}{Grafo} y el algoritmo de Dijkstra.  
+
+
+{\ttfamily \+\#include $<$iostream$>$}\newline
+{\ttfamily \+\#include "{}dijkstra.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{main_8cpp_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}} ()
+\begin{DoxyCompactList}\small\item\em Menú del programa que maneja el input (aportación) del usuario. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+El programa completo de la clase \doxylink{class_grafo}{Grafo} y el algoritmo de Dijkstra. 
+
+Las opciones son las siguientes:\+
+\begin{DoxyItemize}
+\item 1) Crear un grafo con un número determinado de vértices.
+\item 2) Agregar aristar ponderadas, dirigidas o no, entre dos vértices del grafo.
+\item 3) Calcular y visualzar la distancia mínima desde un vértice de origen a todos los demás.
+\item 4) Salir del programa. 
+\end{DoxyItemize}
+
+Definition in file \doxymbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{main_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\texorpdfstring{$<$}{<} Número de vértices del grafo.
+
+\texorpdfstring{$<$}{<} \doxylink{class_grafo}{Grafo} con n vertices y pesos enteros.
+
+\texorpdfstring{$<$}{<} Elimina el grafo anterior si fue creado previamente.
+
+\texorpdfstring{$<$}{<} Vértice de inicio, de destino, y peso de la arista, respectivamente.
+
+\texorpdfstring{$<$}{<} Indica si el grafo es dirigido o no.
+
+\texorpdfstring{$<$}{<} Vértice de inicio para el algoritmo de Dijkstra.
+
+\texorpdfstring{$<$}{<} Libera la memoria del grafo antes de salir del programa.
+
+Definition at line \doxymbox{\hyperlink{main_8cpp_source_l00019}{19}} of file \doxymbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ n;\ }
+\DoxyCodeLine{00022\ \ \ \ \ \doxymbox{\hyperlink{class_grafo}{Grafo<int>}}*\ grafo\ =\ \textcolor{keyword}{nullptr};\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})}
+\DoxyCodeLine{00025\ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\doxymbox{\hyperlink{main_8cpp_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}}())}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n¿De\ cuántos\ vértices\ desea\ crear\ el\ grafo?:\ "{}};}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ n;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (grafo\ !=\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ grafo;\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ grafo\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_grafo}{Grafo<int>}}(n);}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n¡El\ grafo\ se\ ha\ creado\ exitosamente\ con\ "{}}\ <<\ n\ <<\ \textcolor{stringliteral}{"{}\ vértices!"{}};}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (grafo\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nNo\ se\ ha\ creado\ un\ grafo\ aún."{}};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ in,\ dest,\ p;\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ direccion;\ }
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nIngrese\ el\ vértice\ de\ inicio:\ "{}};}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ in;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nIngrese\ el\ vértice\ de\ destino:\ "{}};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ dest;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nIngrese\ el\ peso\ de\ la\ arista:\ "{}};}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ p;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n¿Es\ un\ grafo\ dirigido?\ (1\ para\ sí,\ 0\ para\ no):\ "{}};}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ direccion;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ grafo-\/>\doxymbox{\hyperlink{class_grafo_a1b2e02124c709f69aad59c50e5ced5ca}{agregarArista}}(in,\ dest,\ p,\ direccion);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n¡La\ arista\ se\ ha\ creado\ exitosamente!"{}};}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (grafo\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nNo\ se\ ha\ creado\ un\ grafo\ aún."{}};}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ origen;\ }
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n¿Cuál\ es\ el\ vértice\ de\ inicio?\ (Implementación\ del\ algoritmo\ de\ Dijkstra):\ "{}};}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ origen;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ grafo-\/>\doxymbox{\hyperlink{class_grafo_ae313c54d703c35e7d244343c9333170c}{dijkstra}}(origen);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nSaliendo\ del\ programa..."{}};}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ exit(0);}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{delete}\ grafo;\ }
+\DoxyCodeLine{00095\ \}}
+
+\end{DoxyCode}
+\Hypertarget{main_8cpp_ae83fcdbeb2b6757fc741ae953b633ee1}\index{main.cpp@{main.cpp}!menu@{menu}}
+\index{menu@{menu}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{menu()}{menu()}}
+{\footnotesize\ttfamily \label{main_8cpp_ae83fcdbeb2b6757fc741ae953b633ee1} 
+int menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Menú del programa que maneja el input (aportación) del usuario. 
+
+Devuelve una opción a la función \doxylink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()}. 
+
+Definition at line \doxymbox{\hyperlink{main_8cpp_source_l00105}{105}} of file \doxymbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00106\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{int}\ opcion;}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{00109\ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_\ ¡\ MENÚ\ !\ -\/\_-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_-\/\_"{}};}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n1)\ Crear\ un\ grafo\ de\ n\ vértices.\(\backslash\)n"{}};}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}2)\ Agregar\ aristar\ ponderadas.\(\backslash\)n"{}};}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}3)\ Calcular\ y\ visualzar\ la\ distancia\ mínima\ desde\ un\ vértice\ de\ origen\ a\ todos\ los\ demás.\(\backslash\)n"{}};}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}4)\ Salir\ del\ programa.\(\backslash\)n"{}};}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/>\ Seleccione\ una\ opción:\ "{}};}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ cin\ >>\ opcion;}
+\DoxyCodeLine{00117\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (opcion\ <\ 1\ ||\ opcion\ >\ 4);}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{return}\ opcion;}
+\DoxyCodeLine{00119\ \}}
+
+\end{DoxyCode}

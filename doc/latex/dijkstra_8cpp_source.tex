@@ -1,0 +1,94 @@
+\doxysection{dijkstra.\+cpp}
+\hypertarget{dijkstra_8cpp_source}{}\label{dijkstra_8cpp_source}\index{src/dijkstra.cpp@{src/dijkstra.cpp}}
+\doxymbox{\hyperlink{dijkstra_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{dijkstra_8h}{dijkstra.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00009}00009\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00011}00011\ \textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00020}00020\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00021}\doxymbox{\hyperlink{class_grafo_a136bf29bc6865d940dbd8ff18f41619f}{00021}}\ \doxymbox{\hyperlink{class_grafo_a136bf29bc6865d940dbd8ff18f41619f}{Grafo<T>::Grafo}}(\textcolor{keywordtype}{int}\ v)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00023}00023\ \ \ \ \ vertices\ =\ v;}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00024}00024\ \ \ \ \ matriz\_adj.resize(vertices,\ vector<T>(vertices,\ 0));}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00025}00025\ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00027}00027\ \textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00038}00038\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00039}00039\ \textcolor{keywordtype}{int}\ Grafo<T>::distanciaMin(vector<T>\&\ dist,\ vector<bool>\&\ visitado)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00040}00040\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00041}00041\ \ \ \ \ T\ min\ =\ numeric\_limits<T>::max();}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordtype}{int}\ indice\_min\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ vertices;\ i++)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00045}00045\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!visitado[i]\ \&\&\ dist[i]\ <\ min)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ min\ =\ dist[i];}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ indice\_min\ =\ i;}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00051}00051\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{return}\ indice\_min;}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00054}00054\ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00056}00056\ \textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00068}00068\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00069}\doxymbox{\hyperlink{class_grafo_a1b2e02124c709f69aad59c50e5ced5ca}{00069}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_grafo_a1b2e02124c709f69aad59c50e5ced5ca}{Grafo<T>::agregarArista}}(\textcolor{keywordtype}{int}\ inicio,\ \textcolor{keywordtype}{int}\ destino,\ T\ peso,\ \textcolor{keywordtype}{bool}\ dirigido)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00070}00070\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00071}00071\ \ \ \ \ matriz\_adj[inicio][destino]\ =\ peso;}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{if}\ (!dirigido)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00073}00073\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ matriz\_adj[destino][inicio]\ =\ peso;}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00075}00075\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00076}00076\ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00079}00079\ \textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00092}00092\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00093}\doxymbox{\hyperlink{class_grafo_ae313c54d703c35e7d244343c9333170c}{00093}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_grafo_ae313c54d703c35e7d244343c9333170c}{Grafo<T>::dijkstra}}(\textcolor{keywordtype}{int}\ inicio)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00094}00094\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00095}00095\ \ \ \ \ vector<T>\ dist(vertices,\ numeric\_limits<T>::max());}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00096}00096\ \ \ \ \ vector<bool>\ visitado(vertices,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00098}00098\ \ \ \ \ dist[inicio]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00100}00100\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ vertices\ -\/\ 1;\ i++)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00101}00101\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ u\ =\ distanciaMin(dist,\ visitado);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (u\ ==\ -\/1)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ visitado[u]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ v\ =\ 0;\ v\ <\ vertices;\ v++)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!visitado[v]\ \&\&\ matriz\_adj[u][v]\ !=\ 0\ \&\&\ dist[u]\ !=\ numeric\_limits<T>::max()\ \&\&\ dist[u]\ +\ matriz\_adj[u][v]\ <\ dist[v])}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dist[v]\ =\ dist[u]\ +\ matriz\_adj[u][v];}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00118}00118\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00120}00120\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}-\/\_-\/\_-\/\_-\/\_-\/\ Distancias\ desde\ el\ vértice\ "{}}\ <<\ inicio\ <<\ \textcolor{stringliteral}{"{}\ -\/\_-\/\_-\/\_-\/\_-\/\(\backslash\)n\(\backslash\)n"{}};\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00121}00121\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ vertices;\ i++)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00122}00122\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/>\ Para\ llegar\ al\ vertice\ "{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\ :\ "{}}\ <<\ dist[i]\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00124}00124\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8cpp_source_l00125}00125\ \}}
+
+\end{DoxyCode}

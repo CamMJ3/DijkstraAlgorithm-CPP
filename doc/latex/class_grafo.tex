@@ -1,0 +1,163 @@
+\doxysection{Grafo\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_grafo}{}\label{class_grafo}\index{Grafo$<$ T $>$@{Grafo$<$ T $>$}}
+
+
+{\ttfamily \+\#include $<$dijkstra.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_grafo_a136bf29bc6865d940dbd8ff18f41619f}{Grafo}} (int v)
+\begin{DoxyCompactList}\small\item\em Inicializa un grafo de n vértices con una matriz de adyacencia, por lo tanto, vacía. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_grafo_a1b2e02124c709f69aad59c50e5ced5ca}{agregar\+Arista}} (int inicio, int destino, T peso, bool dirigido)
+\begin{DoxyCompactList}\small\item\em Inserta una arista ponderada que conecta a dos vértices del grafo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_grafo_ae313c54d703c35e7d244343c9333170c}{dijkstra}} (int inicio)
+\begin{DoxyCompactList}\small\item\em Implementa el algoritmo de Dijkstra para calcular la distancia mínima desde un vértice de origen a todos los demás vértices del grafo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Grafo$<$ T $>$}
+
+
+Definition at line \doxymbox{\hyperlink{dijkstra_8h_source_l00020}{20}} of file \doxymbox{\hyperlink{dijkstra_8h_source}{dijkstra.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_grafo_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_grafo_a136bf29bc6865d940dbd8ff18f41619f}\index{Grafo$<$ T $>$@{Grafo$<$ T $>$}!Grafo@{Grafo}}
+\index{Grafo@{Grafo}!Grafo$<$ T $>$@{Grafo$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Grafo()}{Grafo()}}
+{\footnotesize\ttfamily \label{class_grafo_a136bf29bc6865d940dbd8ff18f41619f} 
+template$<$typename T$>$ \\
+\doxymbox{\hyperlink{class_grafo}{Grafo}}$<$ T $>$::\+\+Grafo (\begin{DoxyParamCaption}\item[{int}]{v}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa un grafo de n vértices con una matriz de adyacencia, por lo tanto, vacía. 
+
+A partir del número de vértices, se re-\/dimensiona un grafo del mismo tamaño cuya matriz de adyacencia (matriz\+\_\+adj) empieza en ceros, lo cual indica que no hay aristas existentes entre los vertices. 
+\begin{DoxyParams}{Parameters}
+{\em v} & Número de vértices del grafo. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{dijkstra_8cpp_source_l00021}{21}} of file \doxymbox{\hyperlink{dijkstra_8cpp_source}{dijkstra.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ vertices\ =\ \doxymbox{\hyperlink{class_grafo}{v}};}
+\DoxyCodeLine{00024\ \ \ \ \ matriz\_adj.resize(vertices,\ \doxymbox{\hyperlink{class_grafo}{vector<T>}}(vertices,\ 0));}
+\DoxyCodeLine{00025\ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-func-members}
+\Hypertarget{class_grafo_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_grafo_a1b2e02124c709f69aad59c50e5ced5ca}\index{Grafo$<$ T $>$@{Grafo$<$ T $>$}!agregarArista@{agregarArista}}
+\index{agregarArista@{agregarArista}!Grafo$<$ T $>$@{Grafo$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{agregarArista()}{agregarArista()}}
+{\footnotesize\ttfamily \label{class_grafo_a1b2e02124c709f69aad59c50e5ced5ca} 
+template$<$typename T$>$ \\
+void \doxymbox{\hyperlink{class_grafo}{Grafo}}$<$ T $>$::\+agregar\+Arista (\begin{DoxyParamCaption}\item[{int}]{inicio}{, }\item[{int}]{destino}{, }\item[{T}]{peso}{, }\item[{bool}]{dirigido}{}\end{DoxyParamCaption})}
+
+
+
+Inserta una arista ponderada que conecta a dos vértices del grafo. 
+
+Se le asigna el peso de la arista a su posición respectiva en la matriz de adyacencia. Dado el caso que el grafo sea no dirigido, se asigna el mismo peso a la posición simétrica de la matriz de adyacencia. 
+\begin{DoxyParams}{Parameters}
+{\em inicio} & Vértice de inicio. \\
+\hline
+{\em destino} & Vértice de destino. \\
+\hline
+{\em peso} & Peso de la arista. \\
+\hline
+{\em dirigido} & Indica si es un grafo dirigido o no. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{dijkstra_8cpp_source_l00069}{69}} of file \doxymbox{\hyperlink{dijkstra_8cpp_source}{dijkstra.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00070\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ matriz\_adj[\doxymbox{\hyperlink{class_grafo}{inicio}}][\doxymbox{\hyperlink{class_grafo}{destino}}]\ =\ \doxymbox{\hyperlink{class_grafo}{peso}};}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_grafo}{dirigido}})}
+\DoxyCodeLine{00073\ \ \ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ matriz\_adj[\doxymbox{\hyperlink{class_grafo}{destino}}][\doxymbox{\hyperlink{class_grafo}{inicio}}]\ =\ \doxymbox{\hyperlink{class_grafo}{peso}};}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_grafo_ae313c54d703c35e7d244343c9333170c}\index{Grafo$<$ T $>$@{Grafo$<$ T $>$}!dijkstra@{dijkstra}}
+\index{dijkstra@{dijkstra}!Grafo$<$ T $>$@{Grafo$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{dijkstra()}{dijkstra()}}
+{\footnotesize\ttfamily \label{class_grafo_ae313c54d703c35e7d244343c9333170c} 
+template$<$typename T$>$ \\
+void \doxymbox{\hyperlink{class_grafo}{Grafo}}$<$ T $>$::\+dijkstra (\begin{DoxyParamCaption}\item[{int}]{inicio}{}\end{DoxyParamCaption})}
+
+
+
+Implementa el algoritmo de Dijkstra para calcular la distancia mínima desde un vértice de origen a todos los demás vértices del grafo. 
+
+Primero, se inicializa un vector de distancias con el valor máximo para el tipo de dato T, además de un vector de visitados en "{}false"{} para indicar que no han sido visitados. La distancia del vértice de inicio consigo mismo es de 0.
+
+Se itera sobre los vértices del grafo, encontrado el vértice no visitado con la distancia mínima acumulada, marcándolo como visitado y actualizando las distancias de sus vértices adyacentes. Si se encuentra un camino más corto a través del vértice actual, se actualiza la distancia en el vector de distancias. 
+\begin{DoxyParams}{Parameters}
+{\em inicio} & Vértice de origen. \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} No hay vértices alcanzables.
+
+Definition at line \doxymbox{\hyperlink{dijkstra_8cpp_source_l00093}{93}} of file \doxymbox{\hyperlink{dijkstra_8cpp_source}{dijkstra.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00094\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \doxymbox{\hyperlink{class_grafo}{vector<T>}}\ \doxymbox{\hyperlink{class_grafo}{dist}}(vertices,\ \doxymbox{\hyperlink{class_grafo}{numeric\_limits<T>::max}}());}
+\DoxyCodeLine{00096\ \ \ \ \ \doxymbox{\hyperlink{class_grafo}{vector<bool>}}\ \doxymbox{\hyperlink{class_grafo}{visitado}}(vertices,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \doxymbox{\hyperlink{class_grafo}{dist}}[\doxymbox{\hyperlink{class_grafo}{inicio}}]\ =\ 0;}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_grafo}{i}}\ =\ 0;\ \doxymbox{\hyperlink{class_grafo}{i}}\ <\ vertices\ -\/\ 1;\ \doxymbox{\hyperlink{class_grafo}{i}}++)}
+\DoxyCodeLine{00101\ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_grafo}{u}}\ =\ distanciaMin(\doxymbox{\hyperlink{class_grafo}{dist}},\ \doxymbox{\hyperlink{class_grafo}{visitado}});}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_grafo}{u}}\ ==\ -\/1)}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_grafo}{visitado}}[\doxymbox{\hyperlink{class_grafo}{u}}]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_grafo}{v}}\ =\ 0;\ \doxymbox{\hyperlink{class_grafo}{v}}\ <\ vertices;\ \doxymbox{\hyperlink{class_grafo}{v}}++)}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_grafo}{visitado}}[\doxymbox{\hyperlink{class_grafo}{v}}]\ \&\&\ matriz\_adj[\doxymbox{\hyperlink{class_grafo}{u}}][\doxymbox{\hyperlink{class_grafo}{v}}]\ !=\ 0\ \&\&\ \doxymbox{\hyperlink{class_grafo}{dist}}[\doxymbox{\hyperlink{class_grafo}{u}}]\ !=\ \doxymbox{\hyperlink{class_grafo}{numeric\_limits<T>::max}}()\ \&\&\ \doxymbox{\hyperlink{class_grafo}{dist}}[\doxymbox{\hyperlink{class_grafo}{u}}]\ +\ matriz\_adj[\doxymbox{\hyperlink{class_grafo}{u}}][\doxymbox{\hyperlink{class_grafo}{v}}]\ <\ \doxymbox{\hyperlink{class_grafo}{dist}}[\doxymbox{\hyperlink{class_grafo}{v}}])}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_grafo}{dist}}[\doxymbox{\hyperlink{class_grafo}{v}}]\ =\ \doxymbox{\hyperlink{class_grafo}{dist}}[\doxymbox{\hyperlink{class_grafo}{u}}]\ +\ matriz\_adj[\doxymbox{\hyperlink{class_grafo}{u}}][\doxymbox{\hyperlink{class_grafo}{v}}];}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \ \ \ \ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \doxymbox{\hyperlink{class_grafo}{cout}}\ <<\ \textcolor{stringliteral}{"{}-\/\_-\/\_-\/\_-\/\_-\/\ Distancias\ desde\ el\ vértice\ "{}}\ <<\ \doxymbox{\hyperlink{class_grafo}{inicio}}\ <<\ \textcolor{stringliteral}{"{}\ -\/\_-\/\_-\/\_-\/\_-\/\(\backslash\)n\(\backslash\)n"{}};\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_grafo}{i}}\ =\ 0;\ \doxymbox{\hyperlink{class_grafo}{i}}\ <\ vertices;\ \doxymbox{\hyperlink{class_grafo}{i}}++)}
+\DoxyCodeLine{00122\ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_grafo}{cout}}\ <<\ \textcolor{stringliteral}{"{}-\/-\/>\ Para\ llegar\ al\ vertice\ "{}}\ <<\ \doxymbox{\hyperlink{class_grafo}{i}}\ <<\ \textcolor{stringliteral}{"{}\ :\ "{}}\ <<\ \doxymbox{\hyperlink{class_grafo}{dist}}[\doxymbox{\hyperlink{class_grafo}{i}}]\ <<\ \doxymbox{\hyperlink{class_grafo}{endl}};}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+headers/\+\doxymbox{\hyperlink{dijkstra_8h}{dijkstra.\+h}}\item 
+src/\+\doxymbox{\hyperlink{dijkstra_8cpp}{dijkstra.\+cpp}}\end{DoxyCompactItemize}

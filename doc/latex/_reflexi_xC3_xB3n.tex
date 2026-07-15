@@ -1,0 +1,14 @@
+\chapter{y Análisi }
+\hypertarget{_reflexi_xC3_xB3n}{}\label{_reflexi_xC3_xB3n}\index{y Análisi@{y Análisi}}
+Análisis técnico y Justificación teórica del programa.\hypertarget{_reflexi_xC3_xB3n_Cuestiones}{}\doxysection{\texorpdfstring{Cuestiones}{Cuestiones}}\label{_reflexi_xC3_xB3n_Cuestiones}
+En este apartado se responden las siguientes cuestiones...
+
+1) Análisis de la complejidad algorítmica de su implementación (O(\+V2) o O(\+E log V)). 2) Justificación teórica:\+ ¿\+Por qué una búsqueda en anchura (BFS) estándar no es capaz de encontrar la ruta más corta en un grafo donde las aristas tienen diferentes pesos? Explique cómo Dijkstra soluciona este problema.\hypertarget{_reflexi_xC3_xB3n_algoritmo_dijkstra}{}\doxysection{\texorpdfstring{Análisis técnico}{Análisis técnico}}\label{_reflexi_xC3_xB3n_algoritmo_dijkstra}
+1) La complejidad algorítmica de la implementación del algoritmo de Dijkstra, al utilizarse una matriz de adyacencia, es de O(\+V\texorpdfstring{$^\wedge$}{\string^}2). Su complejidad se debe a que, primero, en la función para determinar la distancia mínima (distancia\+Min), se recorren todos los vértices hasta encontrar el vértice no visitado con la distancia mínima, lo cual lo categoriza como O(\+V).
+
+Posteriormente, en la función correspondiente al algoritmo de Dijkstra (dijkstra), se itera nuevamente sobre los vértices del grafo para actualizar las distancias de sus vértices adyacences y encontrar el vértice no visitado con la distancia mínima, lo cual también lo categoriza como O(\+V).
+
+Por lo tanto, ambas funciones en conjunto dan como resultado una complejida O(\+V) \texorpdfstring{$\ast$}{*} O(\+V) = O(\+V\texorpdfstring{$^\wedge$}{\string^}2).\hypertarget{_reflexi_xC3_xB3n_bfs_dijkstra}{}\doxysection{\texorpdfstring{Justificación teórica}{Justificación teórica}}\label{_reflexi_xC3_xB3n_bfs_dijkstra}
+2) Una búsqueda en anchura (BFS) estándar es un algoritmo que puede recorrer grafos no ponderados (cuyas aristas no tienen costo o peso), encontrando el camino mas corto en cuestión de aristas. Logra su cometido utilizando una cola para acceder a los vertices adyacentes desde un vértice de inicio, es decir, recorre el grafo por niveles.
+
+Debido a lo anterior, si se aplicara el algoritmo de BFS en un grafo ponderado, no tomaría en cuenta los pesos asignados a las aristas entre los vértices, haciéndolo susceptible a encontrar caminos más cortos en cuestión de aristas que de pesos. Ante esta situación, el algoritmo de Dijkstra es la mejor opción para encontrar el camino más corto en un grafo ponderado, sea dirigido o no, ya que calcula la distancia mínima desde un vertice de inicio a los demás vértices utilizando una matriz de adyacencia para registrar los pesos de las aristas entre los vértices y actualizar las distancias acumuladas a través de los vértices adyacentes. 

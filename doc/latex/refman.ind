@@ -1,0 +1,55 @@
+\begin{theindex}
+
+  \item {agregarArista}
+    \subitem {Grafo$<$ T $>$}, \hyperpage{26}
+  \item {Análisis}, \hyperpage{3}
+
+  \indexspace
+
+  \item {Bibliografía}, \hyperpage{15}
+
+  \indexspace
+
+  \item {Determinación de circuitos en un grafo (C++)}, \hyperpage{1}
+  \item {dijkstra}
+    \subitem {Grafo$<$ T $>$}, \hyperpage{26}
+
+  \indexspace
+
+  \item {Grafo}
+    \subitem {Grafo$<$ T $>$}, \hyperpage{25}
+  \item {Grafo$<$ T $>$}, \hyperpage{25}
+    \subitem {agregarArista}, \hyperpage{26}
+    \subitem {dijkstra}, \hyperpage{26}
+    \subitem {Grafo}, \hyperpage{25}
+
+  \indexspace
+
+  \item {headers Directory Reference}, \hyperpage{23}
+  \item {headers/dijkstra.h}, \hyperpage{29, 30}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.cpp}, \hyperpage{32}
+  \item {main.cpp}
+    \subitem {main}, \hyperpage{32}
+    \subitem {menu}, \hyperpage{33}
+  \item {menu}
+    \subitem {main.cpp}, \hyperpage{33}
+
+  \indexspace
+
+  \item {Pruebas}, \hyperpage{5}
+
+  \indexspace
+
+  \item {README.md}, \hyperpage{30}
+
+  \indexspace
+
+  \item {src Directory Reference}, \hyperpage{23}
+  \item {src/dijkstra.cpp}, \hyperpage{30}
+  \item {src/main.cpp}, \hyperpage{31}, \hyperpage{34}
+
+\end{theindex}

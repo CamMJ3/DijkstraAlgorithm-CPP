@@ -1,0 +1,30 @@
+\doxysection{dijkstra.\+h}
+\hypertarget{dijkstra_8h_source}{}\label{dijkstra_8h_source}\index{headers/dijkstra.h@{headers/dijkstra.h}}
+\doxymbox{\hyperlink{dijkstra_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00005}00005\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00019}00019\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00020}\doxymbox{\hyperlink{class_grafo}{00020}}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_grafo_a136bf29bc6865d940dbd8ff18f41619f}{Grafo}}\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00021}00021\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ vertices;\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ vector<vector<T>>\ matriz\_adj;\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ distanciaMin(vector<T>\&\ dist,\ vector<bool>\&\ visitado);\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00027}00027\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_grafo_a136bf29bc6865d940dbd8ff18f41619f}{Grafo}}(\textcolor{keywordtype}{int}\ v);\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_grafo_a1b2e02124c709f69aad59c50e5ced5ca}{agregarArista}}(\textcolor{keywordtype}{int}\ inicio,\ \textcolor{keywordtype}{int}\ destino,\ T\ peso,\ \textcolor{keywordtype}{bool}\ dirigido);\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_grafo_ae313c54d703c35e7d244343c9333170c}{dijkstra}}(\textcolor{keywordtype}{int}\ inicio);\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00032}00032\ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00034}00034\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{dijkstra_8cpp}{../src/dijkstra.cpp}}"{}}}
+
+\end{DoxyCode}
